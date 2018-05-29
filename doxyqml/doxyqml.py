@@ -6,9 +6,13 @@ import os
 import re
 import sys
 
-from . import qmlparser
-from .lexer import Lexer, LexerError
-from .qmlclass import QmlClass
+doxyqml_path = os.path.join(os.path.dirname(__file__), os.pardir, os.pardir)
+sys.path.append(doxyqml_path)
+
+import doxyqml
+import qmlparser
+from lexer import Lexer, LexerError
+from qmlclass import QmlClass
 
 
 VERSION = "0.4.0"

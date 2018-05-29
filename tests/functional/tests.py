@@ -8,11 +8,6 @@ import shutil
 import sys
 import subprocess
 
-doxyqml_path = os.path.join(os.path.dirname(__file__), os.pardir, os.pardir)
-sys.path.insert(0, doxyqml_path)
-
-from doxyqml import doxyqml
-
 
 def list_files(topdir):
     result = []
@@ -121,7 +116,7 @@ class Test(object):
 def main():
     script_dir = os.path.dirname(__file__) or "."
 
-    default_doxyqml = os.path.abspath(os.path.join(script_dir, os.pardir, os.pardir, "bin", "doxyqml"))
+    default_doxyqml = os.path.abspath(os.path.join(script_dir, os.pardir, os.pardir, "doxyqml", "doxyqml.py"))
 
     parser = argparse.ArgumentParser()
     parser.add_argument("-u", "--update",
