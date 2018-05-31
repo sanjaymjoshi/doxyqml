@@ -1,7 +1,12 @@
-import lexer
+import os
+import sys
 
-from qmlclass import QmlArgument, QmlProperty, QmlFunction, QmlSignal
+# See comment in doxyqml.py on why the following path change is needed
+doxyqmlPackage_path = os.path.join(os.path.dirname(__file__), os.pardir)
+sys.path.insert(0, doxyqmlPackage_path)
 
+from doxyqml import lexer
+from doxyqml.qmlclass import QmlArgument, QmlProperty,  QmlSignal, QmlFunction
 
 class QmlParserError(Exception):
     def __init__(self, msg, token):

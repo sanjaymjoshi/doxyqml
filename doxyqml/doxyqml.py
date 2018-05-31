@@ -6,10 +6,12 @@ import os
 import re
 import sys
 
-doxyqml_path = os.path.join(os.path.dirname(__file__), os.pardir, os.pardir)
-sys.path.append(doxyqml_path)
+# On some systems (e.g., Windows 10 with Python 3.6.5), relative imports
+# (e.g., from . import qmlparser) are not allowed. Therefore, insert the
+# path to doxyqml package in PYTHONPATH, so that imports are possible.
+doxyqmlPackage_path = os.path.join(os.path.dirname(__file__), os.pardir)
+sys.path.insert(0, doxyqmlPackage_path)
 
-import doxyqml
 import qmlparser
 from lexer import Lexer, LexerError
 from qmlclass import QmlClass
